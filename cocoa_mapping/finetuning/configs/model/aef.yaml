@@ -1,0 +1,9 @@
+model:
+  _target_: cocoa_mapping.models.aef.AEFModel
+  decoder:
+    _target_: cocoa_mapping.models.aef.AEFKalitschekDecoder
+    num_blocks: 2
+    n_filters: 728
+    add_pixelwise_block: false
+preprocessor:
+  _target_: cocoa_mapping.models.aef.AEFPreprocessor

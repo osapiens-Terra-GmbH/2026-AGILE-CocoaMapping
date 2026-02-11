@@ -1,0 +1,4 @@
+table_name: nigeria_train_val_samples_v2
+patch_size: 32
+coverage_threshold: 0.5
+max_sampling_tries: 5

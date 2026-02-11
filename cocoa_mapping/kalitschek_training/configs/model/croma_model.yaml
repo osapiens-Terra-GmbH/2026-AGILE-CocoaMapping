@@ -1,0 +1,11 @@
+_target_: cocoa_mapping.models.croma.CROMAModel
+freeze_encoder: true
+random_encoder: false
+decoder:
+  _target_: cocoa_mapping.models.croma.CROMAKalitschekDecoder
+  encoder_dim: 768
+  direct_input_dim: 12
+  image_resolution: 32
+  num_blocks: 2
+  add_pixelwise_block: false
+  upsampling: bilinear

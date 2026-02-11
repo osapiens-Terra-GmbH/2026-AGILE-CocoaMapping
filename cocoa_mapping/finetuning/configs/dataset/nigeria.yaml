@@ -1,0 +1,8 @@
+nigeria:
+  table_name: nigeria_train_val_samples_v2
+  aef:
+    training_data_dir: nigeria_training_data_aef
+  sentinel_2:
+    training_data_dir: nigeria_training_data
+
+

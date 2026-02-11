@@ -1,0 +1,6 @@
+model:
+  _target_: cocoa_mapping.models.canopy_height_pretrained.canopy_height_pretrained_model.CanopyHeightPretrainedModel
+  load_pretrained_weights: true
+preprocessor:
+  _target_: cocoa_mapping.models.canopy_height_pretrained.canopy_height_preprocessor.CanopyHeightPretrainedPreprocessor
+

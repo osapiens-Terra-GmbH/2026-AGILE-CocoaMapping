@@ -1,0 +1,3 @@
+_target_: cocoa_mapping.models.kalitschek.KalitschekModel
+include_height: false
+in_channels: 12

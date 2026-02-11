@@ -1,0 +1,5 @@
+_target_: cocoa_mapping.models.aef.AEFModel
+decoder:
+  _target_: cocoa_mapping.models.aef.AEFPixelwiseDecoder
+  num_blocks: 2
+  n_filters: 728

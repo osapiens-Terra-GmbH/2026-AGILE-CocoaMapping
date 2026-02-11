@@ -1,0 +1,15 @@
+.idea
+.vscode
+.venv
+.env
+/data
+**/ignoreme
+/outputs
+/wandb
+**/__pycache__
+**/*.pyc
+**/lightning_logs
+**/.DS_Store
+**/.pytest_cache
+**/reproducibility*
+

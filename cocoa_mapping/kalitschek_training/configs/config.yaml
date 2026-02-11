@@ -1,0 +1,31 @@
+# configs/config.yaml
+defaults:
+  - model: kalitschek_model
+  - preprocessor: kalitschek_preprocessor
+  - loader: proper
+  - trainer: proper
+  - _self_
+
+logging: true
+upload_model: true # Whether to upload the best model to Wandb. Note: it will be uploaded only if logging is true.
+
+exp:
+  project: cocoamapping
+  name: ???
+
+paths:
+  training_data_dir: ???
+  checkpoints_dir: null # null means default path will be used
+  models_dir: null #  null means default path will be used
+
+optimizer:
+  lr: 1e-4
+  weight_decay: 1e-4
+
+encoder_optimizer:
+  lr: 1e-5
+  weight_decay: 1e-5
+
+scheduler:
+  gamma: 0.1
+  milestones: [60, 90]

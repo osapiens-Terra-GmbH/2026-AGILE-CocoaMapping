@@ -1,0 +1,3 @@
+name: croma_unfreeze_encoder_different_lrs 
+project: cocoamapping # If provided, the model will be searched in this wandb project. Otherwise, in all projects.
+freeze_encoder: true 

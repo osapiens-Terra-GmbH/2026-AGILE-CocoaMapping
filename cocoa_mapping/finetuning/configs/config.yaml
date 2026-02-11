@@ -1,0 +1,70 @@
+# configs/config.yaml
+defaults:
+  - model: kalitschek # Only used if pretrained_model.model is none.
+  - pretrained_model: none # If provided, the model will be loaded from Wandb instead of initializing it from the config.
+  - trainer: proper
+  - sampling: default
+  - dataset: nigeria
+  - _self_
+
+image_type: sentinel_2 # 'sentinel_2' or 'aef'
+
+seed: 42
+debug: false
+logging: true
+upload_model: true # Whether to upload the best model to Wandb. Note: it will be uploaded only if logging is true.
+
+exp:
+  project: cocoa-mapping-finetune
+  name: ???
+
+# One of the experiments is to mix the finetuning dataset with the samples, we used for pretraining
+pretraining_samples:
+  ratio_pct: 0 # (0-100) the percentage of pretraining samples we will add to the finetuning dataset.
+  aef:
+    # The paths are relative to the data directoruies
+    training_data_file: training_data_aef/train.hdf5
+    s3_training_data_file: training_data_aef/train.hdf5
+  sentinel_2:
+    training_data_file: training_data/train.hdf5
+    s3_training_data_file: training_data/train.hdf5
+
+# null means default path will be used
+paths:
+  checkpoints_dir: null
+  models_dir: null
+  pretraining_train_path: null
+
+split:
+  train: 0.8
+  val: 0.2
+  method: sklearn # sklearn or grid_sample
+  tile_type: sentinel-2 # of 20km, only relevant if split.method is grid_sample
+
+loader:
+  train:
+    batch_size: 128
+    num_workers: null
+    persistent_workers: false # persistent workers with rasterio leads to ever-increasing memory usage
+  val:
+    batch_size: 256
+    num_workers: null
+    persistent_workers: false
+
+optimizer:
+  lr: 1e-4
+  weight_decay: 1e-4
+
+# Only applies if the model contains an 'encoder' submodule and it is not frozen
+encoder_optimizer:
+  lr: 1e-5
+  weight_decay: 1e-5
+
+scheduler:
+  gamma: 0.1
+  milestones: [30, 60]
+
+warmup:
+  epochs: 10
+
+loss: ce
